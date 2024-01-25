@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 # rite a Bash script that displays the time for 12 hours and 59 minutes
 
-i=1
-while [ "$i" -le 720]
-do
-	echo "$i"
+hou=0
+while [ "$hou" -le 12]
+doi
+	min=1
+	while[ "$min" -le 12]
+	do
+		echo "$hou:$min"
+		min=$((min + 1))
+	done
+	hour=$(( hou + 1 ))
+done
 
