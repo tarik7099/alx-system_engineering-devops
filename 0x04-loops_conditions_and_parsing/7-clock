@@ -3,11 +3,12 @@
 
 hou=0
 while [ "$hou" -le 12]
-doi
-	min=1
-	while[ "$min" -le 12]
+do
+	echo "Hour: $hou"
+	min=0
+	while[ "$min" -le 60]
 	do
-		echo "$hou:$min"
+		echo "$min"
 		min=$((min + 1))
 	done
 	hour=$(( hou + 1 ))
