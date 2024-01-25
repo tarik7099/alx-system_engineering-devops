@@ -7,8 +7,8 @@ do
 	then
         	echo "Best School"
         	echo "Hi"
-    else
+    	else
         	echo "Best School"
-    fi
-    i=$((i + 1))
+    	fi
+    	i=$((i + 1))
 done
