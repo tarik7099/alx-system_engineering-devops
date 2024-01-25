@@ -2,11 +2,11 @@
 # rite a Bash script that displays the time for 12 hours and 59 minutes
 
 hou=0
-while [ $hou -le 12 ]
+while [ $hou -lt 13 ]
 do
 	echo "Hour: $hou"
-	min=0
-	while [ $min -le 60 ]
+	min=1
+	while [ $min -lt 60 ]
 	do
 		echo $min
 		min=$((min + 1))
