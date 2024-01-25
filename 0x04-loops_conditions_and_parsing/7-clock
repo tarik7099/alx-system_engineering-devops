@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# rite a Bash script that displays the time for 12 hours and 59 minutes
+
+i=1
+while [ "$i" -le 720]
+do
+	echo "$i"
+
