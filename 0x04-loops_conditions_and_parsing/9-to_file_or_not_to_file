@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 #Write a Bash script that gives you information about the school file.
 
+FILE="school"
 
-
-if [ -e "holbertonschool" ]
+if [ -e "hell" ]
 then
 	echo "school file exists"
-  	if [ -s "holbertonschool" ]
+  	if [ -s "$FILL" ]
   	then
     		echo "school file is not empty"
   	else
     		echo "school file is empty"
   	fi
 
-  	if [ -f "holbertonschool" ]
+  	if [ -f "$FILE" ]
   	then
     		echo "school file is a regular file"
   	fi
