@@ -3,7 +3,7 @@
 
 FILE="school"
 
-if [ -e "hell" ]
+if [ -e "$FILE" ]
 then
 	echo "school file exists"
   	if [ -s "$FILL" ]
