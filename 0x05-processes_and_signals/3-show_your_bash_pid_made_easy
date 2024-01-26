@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# show my pid bash no ps
+
+pgrep -l bash
+
