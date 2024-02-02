@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
+# Pings an IP address received
 
-#script that ping ip address
-ip=$1
-if [ -n "$ip" ]
+if [ "$#" -eq 0 ]
 then
-	ping -c 5 "$ip"
+  echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 else
-	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+  ping -c 5 "$1"
 fi
