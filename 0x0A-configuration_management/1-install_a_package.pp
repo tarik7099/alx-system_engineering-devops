@@ -1,7 +1,13 @@
 #!/usr/bin/pup
 #Install the puppe
-# t-lint package
+# Install Flask package
 package { 'flask':
-  ensure   => '2.5.0',
+  ensure   => '2.1.0',
+  provider => 'pip3',
+}
+
+# Install Werkzeug package
+package { 'werkzeug':
+  ensure   => '2.1.1',
   provider => 'pip3',
 }
