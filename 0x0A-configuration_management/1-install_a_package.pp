@@ -1,5 +1,7 @@
-# Install the puppet-lint package
-package { 'puppet-lint':
+#!/usr/bin/pup
+#Install the puppe
+# t-lint package
+package { 'flask':
   ensure   => '2.5.0',
-  provider => 'gem',
+  provider => 'pip3',
 }
