@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # script to initialize server apache
-sudo systemctl status apache2
+sudo service status apache2
 
