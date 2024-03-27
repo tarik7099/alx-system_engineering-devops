@@ -1,20 +1,14 @@
 #!/usr/bin/env bash
-# Installs Nginx web server with configure it:
-#   Listens on port 80.
-#   Returns a page containing "Hello World" when queried
-#   at the root with a curl GET request.
 
-sudo apt-get -y update
+# Update package lists and install nginx
+sudo apt-get update
 sudo apt-get -y install nginx
 
-# is used to allow incoming connections to the Nginx HTTP server through the firewall through port 80. using the ufw (Uncomplicated Firewall) command-line tool.
+# Allow Nginx HTTP traffic
 sudo ufw allow 'Nginx HTTP'
 
-# change the owner of the /var/www directory to the current user recursively. To allow modification of the files in the directory.
-sudo chown -R $USER /var/www
+# Create a simple index file
+echo 'Hello World!' | sudo tee /var/www/html/index.nginx-debian.html
 
-# set up a page containing "Hello World" when queried at the root with a curl GET request.
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-
-# restart Nginx to apply the changes
-service nginx start
+# Restart Nginx to apply changes
+sudo service nginx restart
