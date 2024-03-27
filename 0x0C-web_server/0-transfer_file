@@ -2,8 +2,7 @@
 
 #bash script
 
-if [ $# -ne 4 ];
-then
+if [ $# -lt 4 ];then
     echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"	
     exit 1
 fi
@@ -13,4 +12,4 @@ ip="$2"
 user="$3"
 key="$4"
 
-scp -i "$key" "$source_file" "$user@$ip:~/"
+scp -o "StrictHostKeyChecking=no" -i "$key" "$source_file" "$user@$ip":~/
