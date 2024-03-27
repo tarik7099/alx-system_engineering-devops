@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-
-#bash script
-
-if [ $# -lt 4 ];then
-    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"	
-    exit 1
+# bash script that copy file scp
+if [ $# -ne 4 ]; then
+	    echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+	        exit 1
 fi
 
 source_file="$1"
@@ -13,3 +11,4 @@ user="$3"
 key="$4"
 
 scp -o "StrictHostKeyChecking=no" -i "$key" "$source_file" "$user@$ip":~/
+
