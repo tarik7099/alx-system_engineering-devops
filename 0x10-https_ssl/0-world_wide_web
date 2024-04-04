@@ -1,0 +1,22 @@
+#!/bin/bash
+
+display_info() {
+    local sub_domain=$1
+    local domain=$2
+    local record_type=$(dig $sub_domain.$domain +short -t A)
+    local destination=$(dig $sub_domain.$domain +short)
+    
+    echo "The subdomain $sub_domain is a $record_type record and points to $destination"
+}
+
+domain=$1
+subdomain=$2
+
+if [ -z "$subdomain" ]; then
+    display_info "www" $domain
+    display_info "lb-01" $domain
+    display_info "web-01" $domain
+    display_info "web-02" $domain
+else
+    display_info $subdomain $domain
+fi
