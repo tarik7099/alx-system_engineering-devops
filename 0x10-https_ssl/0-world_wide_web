@@ -1,22 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Bash script displays DNS records: record type, IP, subdomains
 
-display_info() {
-    local sub_domain=$1
-    local domain=$2
-    local record_type=$(dig $sub_domain.$domain +short -t A)
-    local destination=$(dig $sub_domain.$domain +short)
-    
-    echo "The subdomain $sub_domain is a $record_type record and points to $destination"
+print_rec ()
+{
+    printf "The subdomain %s is a " "$2"
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $4 }'
+    printf " record and points to "
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $5 }'
+    echo ""
 }
 
-domain=$1
-subdomain=$2
-
-if [ -z "$subdomain" ]; then
-    display_info "www" $domain
-    display_info "lb-01" $domain
-    display_info "web-01" $domain
-    display_info "web-02" $domain
+if [ -z "$2" ]; then
+   for subs in "www" "lb-01" "web-01" "web-02"
+   do
+       print_rec "$1" "$subs"
+   done
 else
-    display_info $subdomain $domain
+    print_rec "$1" "$2"
 fi
