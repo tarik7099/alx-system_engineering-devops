@@ -1,5 +1,6 @@
-#/usr/bin/env bash
-# Installing new server to serve content
-./0-nginx_likes_port_80
-echo "hi" > /var/run/nginx.pid
-echo "hi" > /run/nginx.pid
+#!/usr/bin/env bash                                                                                                                                       
+# fix nginx listening on port 80                                                                                                                          
+cd /etc/nginx/sites-enabled/ || exit;                                                                                                                             
+rm default;                                                                                                                                               
+ln -s /etc/nginx/sites-available/default default;                                                                                                         
+service nginx restart 
